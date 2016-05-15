@@ -40,7 +40,19 @@ int main()
 	if( execl("/bin/sh", "/bin/sh") == -1 )
 	{
 		printf("Could not execute '/bin/sh': %d: %s\n", errno, strerror(errno));
-		return errno;
+		if( errno == 2 )
+		{
+			printf("Will try to execute 'sh' from PATH...\n");
+			if( execlp("sh", "sh", NULL) == -1 )
+			{
+				printf("Could not execute 'sh': %d: %s\n", errno, strerror(errno));
+				return errno;
+			}
+		}
+		else
+		{
+			return errno;
+		}
 	}
 
 	return 0;
