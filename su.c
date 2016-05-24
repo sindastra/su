@@ -37,7 +37,7 @@ int main()
 		// Do not return, as setuid(0) is good enough.
 	}
 
-	if( execl("/bin/sh", "/bin/sh") == -1 )
+	if( execl("/bin/sh", "/bin/sh", NULL) == -1 )
 	{
 		printf("Could not execute '/bin/sh': %d: %s\n", errno, strerror(errno));
 		if( errno == 2 )
