@@ -3,4 +3,4 @@ CC ?= gcc
 all: su
 
 su: su.c
-	$(CC) $(CFLAGS) su.c -o su
+	$(CC) -O3 $(CFLAGS) su.c -o su
