@@ -14,9 +14,19 @@ name: "CodeQL"
 on:
   push:
     branches: [ main ]
+    paths:
+      - '**.c'
+      - '**.h'
+      - 'Makefile'
+      - '.github/workflows/codeql-analysis.yml'
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
+    paths:
+      - '**.c'
+      - '**.h'
+      - 'Makefile'
+      - '.github/workflows/codeql-analysis.yml'
   schedule:
     - cron: '39 15 * * 3'
 
